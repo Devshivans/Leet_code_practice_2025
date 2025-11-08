@@ -1,0 +1,40 @@
+LINK:https://leetcode.com/problems/string-to-integer-atoi/
+
+
+class Solution {
+public:
+    int myAtoi(string s) {
+        int i=0;
+        int sign=1;
+        long long number=0;
+        while(i< s.length() && s[i] == ' '){
+            i++;
+        }
+        if(i<s.length()){
+            if(s[i]=='-'){
+                sign=-1;
+                i++;
+            }
+            else if(s[i]=='+'){
+                sign=1;
+                i++;
+            }
+
+        }
+        while(i<s.length() && isdigit(s[i])){
+           int digit=s[i]-'0';
+            number = number*10+digit;
+            i++;
+            if(sign*number>INT_MAX) return INT_MAX;
+              if(sign*number<INT_MIN) return INT_MIN;
+
+
+        }
+        number=number*sign;
+        if(number>INT_MAX) return INT_MAX;
+         if(number<INT_MIN) return INT_MIN;
+         return(int) number;
+
+
+    }
+};
