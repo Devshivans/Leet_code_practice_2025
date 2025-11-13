@@ -1,0 +1,15 @@
+// User function Template for C++
+class Solution {
+  public:
+    bool armstrongNumber(int n) {
+        // code here
+        int sum=0;
+        int last_digit=0;
+        while(n!=0){
+            last_digit=n%10;
+            sum=sum+(last_digit*last_digit*last_digit);
+            n=n/10;
+        }
+        if(sum==n) return true;
+    }
+};
