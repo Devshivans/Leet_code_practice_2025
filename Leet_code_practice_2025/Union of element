@@ -1,0 +1,25 @@
+Link:https://takeuforward.org/plus/dsa/problems/union-of-two-sorted-arrays
+
+class Solution {
+public:
+    vector<int> unionArray(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> combined;
+
+        for(int x: nums1) combined.push_back(x);
+          for(int x: nums2) combined.push_back(x);
+
+          sort(combined.begin(),combined.end());
+          int n=combined.size();
+          vector<int> ans;
+
+          for(int i=0;i<n;i++){
+            if(i==0 || combined[i] != combined[i-1]){
+                ans.push_back(combined[i]);
+
+            }
+
+          }
+
+        return ans;
+    }
+};
